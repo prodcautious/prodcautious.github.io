@@ -295,9 +295,61 @@ button:not(.control-btn):active {
 }
 
 /* Volume slider hidden on small screens */
-#volumeSlider {
-display: none;
+/* WebKit browsers (Chrome, Safari, Edge) */
+#volumeSlider::-webkit-slider-thumb {
+  background: #333;         /* Dark grey thumb */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+  margin-top: -5px;         /* center the thumb vertically */
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  -webkit-appearance: none;
 }
+
+#volumeSlider::-webkit-slider-runnable-track {
+  background: #ccc;         /* Light grey track */
+  height: 6px;
+  border-radius: 3px;
+}
+
+/* Firefox */
+#volumeSlider::-moz-range-thumb {
+  background: #333;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+#volumeSlider::-moz-range-track {
+  background: #ccc;
+  height: 6px;
+  border-radius: 3px;
+}
+
+/* Microsoft Edge (old) */
+#volumeSlider::-ms-thumb {
+  background: #333;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+#volumeSlider::-ms-track {
+  background: #ccc;
+  height: 6px;
+  border-radius: 3px;
+  border-color: transparent;
+  color: transparent;
+}
+
 @media (min-width: 30em) {
 #volumeSlider {
     display: inline-block;
