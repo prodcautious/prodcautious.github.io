@@ -111,25 +111,15 @@ footer a:visited {
 
 /* Waveform visualization */
 #waveform {
-    width: 100%;
-    height: auto;
-    min-height: 4rem;
-    aspect-ratio: 6 / 1;
-    margin: 1.25rem 0;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    background: rgba(0,0,0,0.05);
-    overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  height: 6rem; /* Or another value you like */
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background: rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
-
-#waveform canvas,
-#waveform svg {
-    width: 100% !important;
-    height: auto !important;
-    display: block;
-    max-width: 100%;
-}
-
 
 /* Playlist section */
 .playlist {

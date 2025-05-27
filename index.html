@@ -80,6 +80,12 @@
         responsive: true,
       });
 
+      window.addEventListener('resize', () => {
+        if (wavesurfer) {
+          wavesurfer.resize();
+        }
+      });
+
       // Function to load a song
       function loadSong(index, autoPlay = true) {
         currentSongIndex = index;
