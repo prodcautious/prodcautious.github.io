@@ -14,33 +14,35 @@
   </head>
 
   <body>
-    <main>
-      <div class="container">
-        <h2>life in a bottle OST</h2>
-        <p>a compilation of music for the game life in a bottle.</p>
+    <div class="page-wrapper">
+      <main>
+        <div class="music-player">
+          <h2>life in a bottle OST</h2>
+          <p>a compilation of music for the game life in a bottle.</p>
 
-        <div class="now-playing">
-          <span id="currentSong">Select a song</span>
+          <div class="now-playing">
+            <span id="currentSong">Select a song</span>
+          </div>
+
+          <!-- 🎵 WaveSurfer waveform -->
+          <div id="waveform"></div>
+
+          <!-- Controls -->
+          <div class="controls">
+            <button id="playPauseBtn">▶</button>
+          </div>
+
+          <!-- Playlist -->
+          <div class="playlist" id="playlist">
+            <!-- Songs will be populated here -->
+          </div>
         </div>
+      </main>
 
-        <!-- 🎵 WaveSurfer waveform -->
-        <div id="waveform"></div>
-
-        <!-- Controls -->
-        <div class="controls">
-          <button id="playPauseBtn">▶</button>
-        </div>
-
-        <!-- Playlist -->
-        <div class="playlist" id="playlist">
-          <!-- Songs will be populated here -->
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      follow our head dev! @<a href="https://iocutus.itch.io/life-in-a-bottle">iocutus</a>
-    </footer>
+      <footer>
+        follow our head dev! @<a href="https://iocutus.itch.io/life-in-a-bottle">iocutus</a>
+      </footer>
+    </div>
 
     <script src="https://unpkg.com/wavesurfer.js"></script>
 
