@@ -294,6 +294,21 @@ button:not(.control-btn):active {
     }
 }
 
+/* Volume slider hidden on small screens */
+#volumeSlider {
+display: none;
+}
+@media (min-width: 30em) {
+#volumeSlider {
+    display: inline-block;
+    width: 8rem;
+    accent-color: #333;
+    cursor: pointer;
+    margin-left: 0.75rem;
+    vertical-align: middle;
+}
+}
+
 /* Natural breakpoint #3: When we have plenty of space */
 @media (min-width: 64em) {
     .page-wrapper {

@@ -11,6 +11,8 @@
     />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+    </style>
   </head>
 
   <body>
@@ -30,6 +32,15 @@
           <!-- Controls -->
           <div class="controls">
             <button id="playPauseBtn">▶</button>
+            <input
+              type="range"
+              id="volumeSlider"
+              min="0"
+              max="1"
+              step="0.01"
+              value="1"
+              title="Volume"
+            />
           </div>
 
           <!-- Playlist -->
@@ -40,7 +51,8 @@
       </main>
 
       <footer>
-        follow our head dev! @<a href="https://iocutus.itch.io/life-in-a-bottle">iocutus</a>
+        follow our head dev! @
+        <a href="https://iocutus.itch.io/life-in-a-bottle">iocutus</a>
       </footer>
     </div>
 
@@ -80,7 +92,7 @@
         responsive: true,
       });
 
-      window.addEventListener('resize', () => {
+      window.addEventListener("resize", () => {
         if (wavesurfer) {
           wavesurfer.resize();
         }
@@ -103,7 +115,7 @@
 
         // Auto-play the song when clicked and update button
         if (autoPlay) {
-          wavesurfer.on("ready", () => {
+          wavesurfer.once("ready", () => {
             wavesurfer.play();
             document.getElementById("playPauseBtn").textContent = "⏸";
           });
@@ -141,6 +153,16 @@
           btn.textContent = "⏸";
         }
       });
+
+      // Volume Control
+      const volumeSlider = document.getElementById("volumeSlider");
+      volumeSlider.addEventListener("input", (e) => {
+        const volume = parseFloat(e.target.value);
+        wavesurfer.setVolume(volume);
+      });
+
+      // Initialize volume to full
+      wavesurfer.setVolume(1);
 
       // Auto-play next song when current song ends
       wavesurfer.on("finish", () => {
