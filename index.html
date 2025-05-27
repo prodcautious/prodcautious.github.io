@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>life in a bottle OST</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-
     <main>
       <div class="container">
         <h2>life in a bottle OST</h2>
         <p>a compilation of music for the game life in a bottle.</p>
 
-        <div class="now-playing"><span id="currentSong">Select a song</span></div>
+        <div class="now-playing">
+          <span id="currentSong">Select a song</span>
+        </div>
 
         <!-- 🎵 WaveSurfer waveform -->
         <div id="waveform"></div>
@@ -35,105 +39,104 @@
     </main>
 
     <footer>
-        follow our head dev! @ <a href="https://iocutus.itch.io/life-in-a-bottle">iocutus</a>
+      follow our head dev! @<a href="https://iocutus.itch.io/life-in-a-bottle">iocutus</a>
     </footer>
 
-    <!-- WaveSurfer.js from CDN -->
     <script src="https://unpkg.com/wavesurfer.js"></script>
 
-    <!-- Initialize WaveSurfer and Playlist -->
     <script>
-      // Define your songs
       const songs = [
         {
           title: "Exploration Theme",
           artist: "cautious",
-          file: "./Music/Exploration/exploration_theme.ogg"
+          file: "./Music/Exploration/exploration_theme.ogg",
         },
         {
           title: "Title Theme",
           artist: "cautious",
-          file: "./Music/UI/title_music.ogg"
+          file: "./Music/UI/title_music.ogg",
         },
         {
           title: "Somber",
-          artist: "cautious", 
-          file: "./Music/Miscellaneous/somber.ogg"
+          artist: "cautious",
+          file: "./Music/Miscellaneous/somber.ogg",
         },
         {
           title: "Hope",
           artist: "cautious",
-          file: "./Music/Miscellaneous/hope.ogg"
-        }
+          file: "./Music/Miscellaneous/hope.ogg",
+        },
       ];
 
       let currentSongIndex = 0;
 
       // Create WaveSurfer instance
       const wavesurfer = WaveSurfer.create({
-        container: '#waveform',
-        waveColor: 'white',
-        progressColor: 'black',
+        container: "#waveform",
+        waveColor: "white",
+        progressColor: "black",
         height: 100,
-        responsive: true
+        responsive: true,
       });
 
       // Function to load a song
       function loadSong(index, autoPlay = true) {
         currentSongIndex = index;
         const song = songs[index];
-        
+
         wavesurfer.load(song.file);
-        document.getElementById('currentSong').textContent = `${song.title} - ${song.artist}`;
-        
+        document.getElementById(
+          "currentSong"
+        ).textContent = `${song.title} - ${song.artist}`;
+
         // Update active song in playlist
-        document.querySelectorAll('.song-item').forEach((item, i) => {
-          item.classList.toggle('active', i === index);
+        document.querySelectorAll(".song-item").forEach((item, i) => {
+          item.classList.toggle("active", i === index);
         });
-        
+
         // Auto-play the song when clicked and update button
         if (autoPlay) {
-          wavesurfer.on('ready', () => {
+          wavesurfer.on("ready", () => {
             wavesurfer.play();
-            document.getElementById('playPauseBtn').textContent = '⏸';
+            document.getElementById("playPauseBtn").textContent = "⏸";
           });
         }
       }
 
       // Function to create playlist HTML
       function createPlaylist() {
-        const playlist = document.getElementById('playlist');
-        
+        const playlist = document.getElementById("playlist");
+
         songs.forEach((song, index) => {
-          const songDiv = document.createElement('div');
-          songDiv.className = 'song-item';
+          const songDiv = document.createElement("div");
+          songDiv.className = "song-item";
           songDiv.innerHTML = `
             <div class="song-title">${song.title}</div>
             <div class="song-artist">${song.artist}</div>
           `;
-          
-          songDiv.addEventListener('click', () => {
+
+          songDiv.addEventListener("click", () => {
             loadSong(index);
           });
-          
+
           playlist.appendChild(songDiv);
         });
       }
 
       // Controls
-      document.getElementById('playPauseBtn').addEventListener('click', () => {
-        const btn = document.getElementById('playPauseBtn');
+      document.getElementById("playPauseBtn").addEventListener("click", () => {
+        const btn = document.getElementById("playPauseBtn");
         if (wavesurfer.isPlaying()) {
           wavesurfer.pause();
-          btn.textContent = '▶';
+          btn.textContent = "▶";
         } else {
           wavesurfer.play();
-          btn.textContent = '⏸';
+          btn.textContent = "⏸";
         }
       });
 
       // Auto-play next song when current song ends
-      wavesurfer.on('finish', () => {
+      wavesurfer.on("finish", () => {
         const nextIndex = (currentSongIndex + 1) % songs.length;
         loadSong(nextIndex);
         wavesurfer.play();
