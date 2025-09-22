@@ -2,32 +2,17 @@ const songs = [
   {
     title: "ballad of the bees",
     artist: "cautious",
-    file: "./Music/Miscellaneous/balladofthebees.ogg",
+    file: "./Music/All/balladofthebees.ogg",
   },
   {
-    title: "blossom",
+    title: "gone fishing",
     artist: "cautious",
-    file: "./Music/Miscellaneous/blossom.ogg",
-  },
-  {
-    title: "dire",
-    artist: "cautious",
-    file: "./Music/Miscellaneous/dire.ogg",
-  },
-  {
-    title: "hope prevails",
-    artist: "cautious",
-    file: "./Music/UI/hope prevails.ogg",
-  },
-  {
-    title: "random",
-    artist: "cautious",
-    file: "./Music/Environment/random.ogg",
+    file: "./Music/All/gonefishing.ogg",
   },
   {
     title: "the great unknown",
     artist: "cautious",
-    file: "./Music/Exploration/thegreatunknown.ogg",
+    file: "./Music/All/thegreatunknown.ogg",
   },
 ];
 
