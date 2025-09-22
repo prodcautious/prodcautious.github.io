@@ -13,7 +13,7 @@ const songs = [
     title: "the great unknown",
     artist: "cautious",
     file: "./Music/All/thegreatunknown.ogg",
-  },
+  }
 ];
 
 let currentSongIndex = 0;
