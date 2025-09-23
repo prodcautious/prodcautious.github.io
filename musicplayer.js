@@ -10,10 +10,16 @@ const songs = [
     file: "./Music/All/bosstheme.wav",
   },
   {
-    title: "gone fishing",
+    title: "gone fishing (day theme)",
     artist: "cautious",
-    file: "./Music/All/gonefishing.ogg",
+    file: "./Music/All/gonefishingday.ogg",
   },
+  {
+    title: "gone fishing (night theme)",
+    artist: "cautious",
+    file: "./Music/All/gonefishingnight.wav",
+  },
+
   {
     title: "the great unknown",
     artist: "cautious",
