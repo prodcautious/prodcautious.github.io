@@ -5,6 +5,11 @@ const songs = [
     file: "./Music/All/balladofthebees.ogg",
   },
   {
+    title: "boss theme",
+    artist: "cautious",
+    file: "./Music/All/bosstheme.wav",
+  },
+  {
     title: "gone fishing",
     artist: "cautious",
     file: "./Music/All/gonefishing.ogg",
