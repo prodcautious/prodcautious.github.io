@@ -17,7 +17,7 @@ const songs = [
   {
     title: "gone fishing (night theme)",
     artist: "cautious",
-    file: "./Music/All/gonefishingnight.wav",
+    file: "./Music/All/gonefishingnight.mp3",
   },
 
   {
